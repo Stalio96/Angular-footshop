@@ -1,0 +1,6 @@
+button {
+    margin: 0;
+    position: absolute;
+    top: 40%;
+    transform: translateX(+765%);
+}

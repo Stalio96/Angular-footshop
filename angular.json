@@ -27,7 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/bootstrap.css"
             ],
             "scripts": []
           },
@@ -97,6 +98,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ng-footshop:build:production",
+            "firebaseProject": "ng-footshop-8ec6a",
+            "firebaseHostingSite": "ng-footshop-8ec6a"
           }
         }
       }

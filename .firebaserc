@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ng-footshop-8ec6a": {
+      "hosting": {
+        "ng-footshop": [
+          "ng-footshop-8ec6a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ng-footshop-8ec6a"
+  }
+}
