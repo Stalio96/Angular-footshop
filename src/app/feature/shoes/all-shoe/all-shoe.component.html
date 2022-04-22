@@ -1,0 +1,10 @@
+<h1>All Shoes</h1>
+
+<div *ngIf="shoeList">
+    <app-shoe-item *ngFor="let shoe of shoeList" [shoe]="shoe"></app-shoe-item>
+    <div *ngIf="shoeList.length === 0">No Themes!</div>
+  </div>
+
+<div *ngIf="!shoeList">
+    Loading...
+  </div>

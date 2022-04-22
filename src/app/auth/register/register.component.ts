@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from 'src/app/shared/auth.service';
+import { AuthService } from 'src/app/core/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { emailValidator, passwordMatch } from '../util';
+import { emailValidator } from '../util';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   registerFormsGroup: FormGroup = this.formBuilder.group({
     'email': new FormControl('', [Validators.required, emailValidator]),
     'password': this.passwordControl,
-    'rePassword': new FormControl(null, [passwordMatch(this.passwordControl)])
+    'rePassword': new FormControl(null, [Validators.required])//passwordMatch(this.passwordControl)])
   })
 
   constructor(private authService: AuthService,
@@ -27,9 +27,11 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-    const { email, password } = this.registerFormsGroup.value;
+    const body = this.registerFormsGroup.value;
 
-    this.authService.register(email, password);
+    this.authService.register(body).subscribe(() => {
+      this.router.navigate(['/home']);
+    });
   }
 
 }

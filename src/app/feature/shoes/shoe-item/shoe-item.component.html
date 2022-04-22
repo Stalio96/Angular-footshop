@@ -1,0 +1,9 @@
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header"><a [routerLink]="['/detail', shoe._id]">{{shoe.brand}}</a></div>
+    <div class="card-body">
+        <img src={{shoe.img}} alt="img">
+      <h4 class="card-title">{{shoe.model}}</h4>
+      <p class="card-text">{{shoe.price}}$</p>
+      <button type="button" class="btn btn-info" [routerLink]="['/detail', shoe._id]">Info</button>
+    </div>
+  </div>

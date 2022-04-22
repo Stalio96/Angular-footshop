@@ -1,0 +1,30 @@
+<div class="card mb-3">
+    <h3 class="card-header">{{shoe.brand}}</h3>
+    <div class="card-body">
+        <h5 class="card-title">{{shoe.model}}</h5>
+    </div>
+
+    <img src={{shoe.img}} alt="img" width="50%" height="200">
+
+    <div class="card-body">
+        <p class="card-text">{{shoe.year}}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Material: {{shoe.material}}</li>
+        <li class="list-group-item">Color: {{shoe.color}}</li>
+        <li class="list-group-item">Description: {{shoe.description}}</li>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link">Size: {{shoe.size}}EU</a>
+        <a href="#" class="card-link">Price: {{shoe.price}}$</a>
+    </div>
+
+    <button type="button" class="btn btn-success" *ngIf="isOwner" routerLink="/edit/{{shoe._id}}">Edit</button>
+    <button type="button" class="btn btn-danger" *ngIf="isOwner" (click)="deleteShoe()">Delete</button>
+
+    <button type="button" class="btn btn-success" *ngIf="!isOwner && !cart" (click)="toCart()">Add to cart</button>
+    <button type="button" class="btn btn-danger"*ngIf="!isOwner && cart" (click)="removeCart()">Remove from cart</button>
+    <div class="card-footer text-muted">
+        {{shoe.created_at | date: 'short'}} days ago
+    </div>
+</div>

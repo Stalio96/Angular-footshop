@@ -1,0 +1,63 @@
+<form [formGroup]="addShoeGroup" (ngSubmit)="addShoe()">
+    <fieldset>
+        <h1>Add Shoe</h1>
+
+        <div class="form-floating">
+            <input type="text" formControlName="brand" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">brand</label>
+            
+        </div>
+        <br>
+        <div class="form-floating">
+            <input type="text" formControlName="model" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">model</label>
+            
+        </div>
+        <div class="form-floating">
+            <input type="text" formControlName="year" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">year</label>
+            
+        </div>
+        <div class="form-floating">
+            <input type="text" formControlName="img" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">img</label>
+            
+        </div>
+        <div class="form-floating">
+            <input type="text" formControlName="material" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">material</label>
+            
+        </div>
+        <div class="form-floating">
+            <input type="text" formControlName="price" class="form-control" id="floatingPassword"
+                placeholder="Price">
+            <label for="floatingPassword">Price</label>
+            
+        </div>
+        <div class="form-floating">
+            <input type="text" formControlName="description" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">description</label>
+            
+        </div>
+        <div class="form-floating">
+            <input type="text" formControlName="size" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">size</label>
+            
+        </div>
+        <div class="form-floating">
+            <input type="text" formControlName="color" class="form-control" id="floatingPassword"
+                placeholder="Password">
+            <label for="floatingPassword">color</label>
+            
+        </div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="addShoeGroup.invalid">Submit</button>
+    </fieldset>
+</form>

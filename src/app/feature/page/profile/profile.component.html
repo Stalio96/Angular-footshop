@@ -1,0 +1,18 @@
+<div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+    <div class="card-header">Profile</div>
+    <div class="card-body">
+        <h4 class="card-title">Email</h4>
+        <p class="card-text">{{user.email}}</p>
+    </div>
+</div>
+
+<h1>My Cart</h1>
+
+<div *ngIf="shoeList">
+    <app-shoe-item *ngFor="let shoe of shoeList" [shoe]="shoe"></app-shoe-item>
+    <div *ngIf="shoeList.length === 0">No Shoes!</div>
+</div>
+
+<div *ngIf="!shoeList">
+    Loading...
+</div>
