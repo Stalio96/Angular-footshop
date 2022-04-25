@@ -19,12 +19,16 @@
         <a href="#" class="card-link">Price: {{shoe.price}}$</a>
     </div>
 
-    <button type="button" class="btn btn-success" *ngIf="isOwner" routerLink="/edit/{{shoe._id}}">Edit</button>
-    <button type="button" class="btn btn-danger" *ngIf="isOwner" (click)="deleteShoe()">Delete</button>
+    <div *ngIf="currentUser">
+        <button type="button" class="btn btn-success" *ngIf="isOwner" routerLink="/edit/{{shoe._id}}">Edit</button>
+        <button type="button" class="btn btn-danger" *ngIf="isOwner" (click)="deleteShoe()">Delete</button>
 
-    <button type="button" class="btn btn-success" *ngIf="!isOwner && !cart" (click)="toCart()">Add to cart</button>
-    <button type="button" class="btn btn-danger"*ngIf="!isOwner && cart" (click)="removeCart()">Remove from cart</button>
-    <div class="card-footer text-muted">
-        {{shoe.created_at | date: 'short'}} days ago
+        <button type="button" class="btn btn-success" *ngIf="!isOwner && !isShoeInCart" (click)="toCart()">Add to
+            cart</button>
+        <button type="button" class="btn btn-danger" *ngIf="!isOwner && isShoeInCart" (click)="removeCart()">Remove from
+            cart</button>
+        <div class="card-footer text-muted">
+            Created at {{shoe.created_at | date: 'short'}}
+        </div>
     </div>
 </div>

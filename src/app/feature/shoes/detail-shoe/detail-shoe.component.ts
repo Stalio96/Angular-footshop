@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/auth.service';
 import { IShoe } from 'src/app/core/interfaces/shoe';
+import { IUser } from 'src/app/core/interfaces/user';
 import { ShoeService } from '../../shoe.service';
 
 @Component({
@@ -14,7 +15,9 @@ export class DetailShoeComponent implements OnInit {
   shoe: IShoe;
   isOwner: boolean;
   shoeId: string;
-  cart: boolean = true;
+  cart: any;
+  isShoeInCart: boolean;
+  currentUser: IUser;
   
   constructor(private shoeService: ShoeService,
     private activatedRoute: ActivatedRoute, 
@@ -22,13 +25,23 @@ export class DetailShoeComponent implements OnInit {
     public router: Router) { }
     
     ngOnInit(): void {
-      console.log(this.authService.currentUser)
+      this.currentUser = this.authService.currentUser;
+      const userId = this.authService.currentUser?._id;
       this.shoeId = this.activatedRoute.snapshot.params['id'];
       this.shoeService.loadShoeById(this.shoeId).subscribe(shoe => {
         this.shoe = shoe;
-        this.isOwner = this.authService.currentUser._id == this.shoe.owner;
-        this.cart = this.authService.currentUser.myShoes.includes(this.shoeId);
-        console.log(this.cart);
+        this.isOwner = userId == this.shoe.owner;
+        this.shoeService.getMyshoes(userId).subscribe(match => {
+          this.cart = match;
+          for(let i of this.cart){
+            if(i._id == this.shoeId){
+              this.isShoeInCart = true;
+              break;
+            }else {
+              this.isShoeInCart = false;
+            }
+          };
+        });
     });
   }
 
@@ -41,19 +54,15 @@ export class DetailShoeComponent implements OnInit {
   }
 
   toCart(){
-    this.shoeService.toCart(this.authService.currentUser, this.shoeId).subscribe({
-      next: () => {
-        this.cart = true;
-      }
-    });
+    this.shoeService.toCart(this.authService.currentUser, this.shoeId).subscribe({});
+    this.isShoeInCart = true;
+    this.router.navigate(['/detail/' + this.shoeId]);
   }
 
   removeCart(){
-    this.shoeService.removeCart(this.shoeId).subscribe({
-      next: () => {
-        this.cart = false;
-      }
-    })
+    this.shoeService.removeCart(this.shoeId).subscribe({})
+    this.isShoeInCart = false;
+    this.router.navigate(['/detail/' + this.shoeId]);
   }
 
 }
