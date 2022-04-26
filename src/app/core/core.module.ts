@@ -5,6 +5,8 @@ import { FooterComponent } from './footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { AuthService } from './auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -24,9 +26,14 @@ export class CoreModule {
   static forRoot(): ModuleWithProviders<CoreModule> {
     return {
       ngModule: CoreModule,
-      providers: [
-        AuthService
-      ]
+      //providers: [
+      //  AuthService,
+      //  {
+      //    provide: HTTP_INTERCEPTORS,
+      //    multi: true,
+      //    useClass: AuthInterceptor
+      //  }
+      //]
     }
   }
 }

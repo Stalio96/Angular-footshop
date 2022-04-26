@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { AuthenticationService } from 'src/app/authentication.service';
 import { ShoeService } from 'src/app/feature/shoe.service';
 import { AuthService } from '../auth.service';
 import { IShoe } from '../interfaces/shoe';
@@ -12,11 +15,12 @@ import { IUser } from '../interfaces/user';
 })
 export class HeaderComponent implements OnInit {
 
+  //currentUser: Observable<IUser> = this.authService.currentUser$;
+  //isLogged$: Observable<boolean> = this.authService.isLogged$;
+
   //serachFormGroup: FormGroup = this.formBuilder.group({
   //  'search': new FormControl('', [])
-  //})
-
-
+  //}
   get isLogged(): boolean {
     return this.authService.isLogged;
   }
@@ -25,16 +29,18 @@ export class HeaderComponent implements OnInit {
     return this.authService.currentUser;
   }
 
-  constructor(private authService: AuthService,
-    private shoeService: ShoeService,
-    private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     
   }
 
   logout(): void {
-    this.authService.logout();
+    console.log('logout called')
+    this.authService.logout().subscribe({
+      
+    });
+    this.router.navigate(['/home']);
   }
 
   //search() {

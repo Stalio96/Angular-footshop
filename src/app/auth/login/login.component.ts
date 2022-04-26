@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/core/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { emailValidator } from '../util';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-login',
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
     const body = this.loginFormsGroup.value
 
     this.authService.login(body).subscribe({
-      next: user => {
+      next: () => {
         this.router.navigate(['/home']);
       },
       complete: () => {

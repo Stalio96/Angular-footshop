@@ -3,6 +3,7 @@ import { AuthService } from 'src/app/core/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { emailValidator, passwordMatch } from '../util';
+import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
   selector: 'app-register',
