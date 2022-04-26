@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/core/auth.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { emailValidator } from '../util';
+import { emailValidator, passwordMatch } from '../util';
 
 @Component({
   selector: 'app-register',
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
   registerFormsGroup: FormGroup = this.formBuilder.group({
     'email': new FormControl('', [Validators.required, emailValidator]),
     'password': this.passwordControl,
-    'rePassword': new FormControl(null, [Validators.required])//passwordMatch(this.passwordControl)])
+    'rePassword': new FormControl(null, [Validators.required, passwordMatch(this.passwordControl)])//passwordMatch(this.passwordControl)])
   })
 
   constructor(private authService: AuthService,

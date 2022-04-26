@@ -7,17 +7,22 @@ import { AppComponent } from './app.component';
 //import { environment } from '../environments/environment';
 //import { provideAuth,getAuth } from '@angular/fire/auth';
 //import { provideFirestore,getFirestore } from '@angular/fire/firestore';
-import { HomeComponent } from './feature/page/home/home.component';
+//import { SearchComponent } from './feature/page/search/search.component';
 import { AppRouterModule } from './app-routing.module';
 //import { AngularFireModule } from '@angular/fire/compat';
 import { AuthModule } from './auth/auth.module';
 import { CoreModule } from './core/core.module';
 import { AddShoeComponent } from './feature/shoes/add-shoe/add-shoe.component';
 import { FeatureModule } from './feature/feature.module';
+import { PageNotFoundComponent } from './shared/page-not-found/page-not-found.component';
+//import { HomeComponent } from './feature/page/home/home.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PageNotFoundComponent,
+    //HomeComponent
+    //SearchComponent
   ],
   imports: [
     BrowserModule,

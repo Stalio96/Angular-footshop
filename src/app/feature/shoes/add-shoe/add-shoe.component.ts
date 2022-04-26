@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { min } from 'rxjs';
 import { ShoeService } from '../../shoe.service';
 
 @Component({
@@ -11,15 +12,15 @@ import { ShoeService } from '../../shoe.service';
 export class AddShoeComponent implements OnInit {
 
   addShoeGroup: FormGroup = this.formBuilder.group({
-    'brand': new FormControl(null, [Validators.required]),
-    'model': new FormControl(null, [Validators.required]),
+    'brand': new FormControl(null, [Validators.required, Validators.minLength(3)]),
+    'model': new FormControl(null, [Validators.required, Validators.minLength(3)]),
     'year': new FormControl(null, [Validators.required]),
     'img': new FormControl(null, [Validators.required]),
-    'material': new FormControl(null, [Validators.required]),
-    'price': new FormControl(null, [Validators.required]),
-    'description': new FormControl(null, [Validators.required]),
-    'size': new FormControl(null, [Validators.required]),
-    'color': new FormControl()
+    'material': new FormControl(null, [Validators.required, Validators.minLength(4)]),
+    'price': new FormControl(null, [Validators.required, Validators.min(50)]),
+    'description': new FormControl(null, [Validators.required, Validators.maxLength(30)]),
+    'size': new FormControl(null, [Validators.required, Validators.maxLength(2)]),
+    'color': new FormControl(null, [Validators.required])
   })
 
   constructor(private formBuilder: FormBuilder, 

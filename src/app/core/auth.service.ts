@@ -42,35 +42,4 @@ export class AuthService {
     this.httpClient.get(`${environment.apiUrl}user/logout`);
     delete this.currentUser;
   }
-
-  //login(email: string, password: string) {
-  //  this.fireAuth.signInWithEmailAndPassword(email, password).then((user) => {
-  //    localStorage.setItem('token', 'true');
-  //    this.currentUser = user
-  //    this.router.navigate(['/home']);
-  //  }, err => {
-  //    alert(err.message);
-  //    this.router.navigate(['/login']);
-  //  })
-  //}
-  //
-  //register(email: string, password: string) {
-  //  this.fireAuth.createUserWithEmailAndPassword(email, password).then((user) => {
-  //    this.router.navigate(['/login']);
-  //    this.currentUser = user
-  //  }, err => {
-  //    alert(err.message);
-  //    this.router.navigate(['/register']);
-  //  })
-  //}
-  //
-  //logout(){
-  //  this.fireAuth.signOut().then(() => {
-  //    localStorage.removeItem('token');
-  //    this.router.navigate(['/login']);
-  //  }, err => {
-  //    alert(err.message)
-  //  })
-  //}
-
 }

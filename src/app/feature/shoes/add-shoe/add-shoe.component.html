@@ -5,57 +5,120 @@
         <div class="form-floating">
             <input type="text" formControlName="brand" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">brand</label>
-            
+            <label for="floatingPassword">Brand</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['brand'].touched && addShoeGroup.controls['brand'].invalid">
+                <p *ngIf="addShoeGroup.controls['brand'].errors['required']" class="error">
+                    Brand is required!
+                </p>
+                <p *ngIf="addShoeGroup.controls['brand'].errors['minlength']" class="error">
+                    Brand must be at least 4 characters!
+                </p>
+            </ng-container>
         </div>
-        <br>
+        
         <div class="form-floating">
             <input type="text" formControlName="model" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">model</label>
-            
+            <label for="floatingPassword">Model</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['model'].touched && addShoeGroup.controls['model'].invalid">
+                <p *ngIf="addShoeGroup.controls['model'].errors['required']" class="error">
+                    Model is required!
+                </p>
+                <p *ngIf="addShoeGroup.controls['model'].errors['minlength']" class="error">
+                    Model must be at least 4 characters!
+                </p>
+            </ng-container>
         </div>
         <div class="form-floating">
             <input type="text" formControlName="year" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">year</label>
-            
+            <label for="floatingPassword">Year</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['year'].touched && addShoeGroup.controls['year'].invalid">
+                <p *ngIf="addShoeGroup.controls['year'].errors['required']" class="error">
+                    Year is required!
+                </p>
+            </ng-container>
         </div>
         <div class="form-floating">
             <input type="text" formControlName="img" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">img</label>
-            
+            <label for="floatingPassword">Image</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['img'].touched && addShoeGroup.controls['img'].invalid">
+                <p *ngIf="addShoeGroup.controls['img'].errors['required']" class="error">
+                    Image is required!
+                </p>
+            </ng-container>
         </div>
         <div class="form-floating">
             <input type="text" formControlName="material" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">material</label>
-            
+            <label for="floatingPassword">Material</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['material'].touched && addShoeGroup.controls['material'].invalid">
+                <p *ngIf="addShoeGroup.controls['material'].errors['required']" class="error">
+                    Material is required!
+                </p>
+                <p *ngIf="addShoeGroup.controls['material'].errors['minlength']" class="error">
+                    Material must be at least 4 characters!
+                </p>
+            </ng-container>
         </div>
         <div class="form-floating">
             <input type="text" formControlName="price" class="form-control" id="floatingPassword"
                 placeholder="Price">
             <label for="floatingPassword">Price</label>
-            
+            <ng-container
+                *ngIf="addShoeGroup.controls['price'].touched && addShoeGroup.controls['price'].invalid">
+                <p *ngIf="addShoeGroup.controls['price'].errors['required']" class="error">
+                    Price is required!
+                </p>
+                <p *ngIf="addShoeGroup.controls['price'].errors['min']" class="error">
+                    Price must minimum 50!
+                </p>
+            </ng-container>
         </div>
         <div class="form-floating">
             <input type="text" formControlName="description" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">description</label>
-            
+            <label for="floatingPassword">Description</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['description'].touched && addShoeGroup.controls['description'].invalid">
+                <p *ngIf="addShoeGroup.controls['description'].errors['required']" class="error">
+                    Description is required!
+                </p>
+                <p *ngIf="addShoeGroup.controls['description'].errors['maxLength']" class="error">
+                    Description must be max 30 characters long!
+                </p>
+            </ng-container>
         </div>
         <div class="form-floating">
             <input type="text" formControlName="size" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">size</label>
-            
+            <label for="floatingPassword">Size</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['size'].touched && addShoeGroup.controls['size'].invalid">
+                <p *ngIf="addShoeGroup.controls['size'].errors['required']" class="error">
+                    Description is required!
+                </p>
+                <p *ngIf="addShoeGroup.controls['size'].errors['maxLength']" class="error">
+                    Size must be max 2 characters long!
+                </p>
+            </ng-container>
         </div>
         <div class="form-floating">
             <input type="text" formControlName="color" class="form-control" id="floatingPassword"
                 placeholder="Password">
-            <label for="floatingPassword">color</label>
-            
+            <label for="floatingPassword">Color</label>
+            <ng-container
+                *ngIf="addShoeGroup.controls['color'].touched && addShoeGroup.controls['color'].invalid">
+                <p *ngIf="addShoeGroup.controls['color'].errors['required']" class="error">
+                    Color is required!
+                </p>
+            </ng-container>
         </div>
 
         <button type="submit" class="btn btn-primary" [disabled]="addShoeGroup.invalid">Submit</button>

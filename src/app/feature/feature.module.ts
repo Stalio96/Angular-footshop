@@ -1,6 +1,6 @@
 import { ModuleWithProviders, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './page/home/home.component';
+import { SearchComponent } from './page/search/search.component';
 import { RouterModule } from '@angular/router';
 import { AddShoeComponent } from './shoes/add-shoe/add-shoe.component';
 import { ShoeService } from './shoe.service';
@@ -11,11 +11,13 @@ import { ShoeItemComponent } from './shoes/shoe-item/shoe-item.component';
 import { DetailShoeComponent } from './shoes/detail-shoe/detail-shoe.component';
 import { EditShoeComponent } from './shoes/edit-shoe/edit-shoe.component';
 import { ProfileComponent } from './page/profile/profile.component';
+import { HomeComponent } from './page/home/home.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    SearchComponent,
     AddShoeComponent,
     AllShoeComponent,
     ShoeItemComponent,
@@ -29,7 +31,7 @@ import { ProfileComponent } from './page/profile/profile.component';
     ShoeRoutingModule,
     ReactiveFormsModule
   ],
-  exports: [HomeComponent, AddShoeComponent],
+  exports: [SearchComponent, AddShoeComponent],
   providers: []
 })
 export class FeatureModule {
