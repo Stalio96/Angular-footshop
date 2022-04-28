@@ -45,7 +45,7 @@ export class EditShoeComponent implements OnInit {
     this.shoeService.editShoe(this.shoeId, body).subscribe({
       next: (shoe) => {
         console.log(shoe);
-        this.router.navigate([`/detail/${this.shoeId}`]);
+        this.router.navigate([`/shoe/detail/${this.shoeId}`]);
       }
     })
   }

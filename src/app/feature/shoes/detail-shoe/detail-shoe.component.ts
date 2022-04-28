@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/core/auth.service';
 import { IShoe } from 'src/app/core/interfaces/shoe';
 import { IUser } from 'src/app/core/interfaces/user';
@@ -48,7 +47,7 @@ export class DetailShoeComponent implements OnInit {
   deleteShoe(): void{
     this.shoeService.deleteShoe(this.shoeId).subscribe({
       next: () => {
-        this.router.navigate(['/all'])
+        this.router.navigate(['/shoe/all'])
       }
     });
   }
@@ -56,13 +55,13 @@ export class DetailShoeComponent implements OnInit {
   toCart(){
     this.shoeService.toCart(this.authService.currentUser, this.shoeId).subscribe({});
     this.isShoeInCart = true;
-    this.router.navigate(['/detail/' + this.shoeId]);
+    this.router.navigate(['/shoe/detail/' + this.shoeId]);
   }
 
   removeCart(){
     this.shoeService.removeCart(this.shoeId).subscribe({})
     this.isShoeInCart = false;
-    this.router.navigate(['/detail/' + this.shoeId]);
+    this.router.navigate(['/shoe/detail/' + this.shoeId]);
   }
 
 }

@@ -20,7 +20,7 @@
     </div>
 
     <div *ngIf="currentUser">
-        <button type="button" class="btn btn-success" *ngIf="isOwner" routerLink="/edit/{{shoe._id}}">Edit</button>
+        <button type="button" class="btn btn-success" *ngIf="isOwner" routerLink="/shoe/edit/{{shoe._id}}">Edit</button>
         <button type="button" class="btn btn-danger" *ngIf="isOwner" (click)="deleteShoe()">Delete</button>
 
         <button type="button" class="btn btn-success" *ngIf="!isOwner && !isShoeInCart" (click)="toCart()">Add to

@@ -36,7 +36,7 @@ export class AddShoeComponent implements OnInit {
     this.shoeService.addShoe(body).subscribe({
       next: (shoe) => {
         console.log(shoe);
-        this.router.navigate(['/home'])
+        this.router.navigate(['/shoe/all'])
       }
     })
   }
